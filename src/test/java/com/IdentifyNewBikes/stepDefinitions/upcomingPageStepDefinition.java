@@ -1,5 +1,7 @@
 package com.IdentifyNewBikes.stepDefinitions;
 
+import org.testng.Assert;
+
 import com.IdentifyNewBikes.pageObjects.upcomingPage;
 import com.IdentifyNewBikes.utils.helperClass;
 
@@ -17,21 +19,19 @@ public class upcomingPageStepDefinition {
 	}
 
 	@When("User selects {string} from the manufacturers dropdown")
-	public void user_selects_from_the_manufacturers_dropdown(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void user_selects_from_the_manufacturers_dropdown(String manufactureName) {
+	    up.selectManufacture(manufactureName);
 	}
 
 	@Then("User should be navigated to Upcoming Honda Bike tab")
 	public void user_should_be_navigated_to_upcoming_honda_bike_tab() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		String actHeading = up.getHeading();
+	    Assert.assertEquals(actHeading, "Honda Upcoming Bikes in India");
 	}
 
 	@When("User clicks on the read more option")
 	public void user_clicks_on_the_read_more_option() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    up.clickViewMore();
 	}
 
 	@When("user gets information of all upcoming Honda bikes")
