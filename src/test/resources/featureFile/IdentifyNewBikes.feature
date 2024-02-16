@@ -32,8 +32,8 @@ Feature: Identify New Bikes
 		When User clicks on the used cars
 		Then User should be navigated to the Used Cars for Sale tab
 		When User sets the location as chennai in filters section
-		And checks all the checkboxes of popular models in the filters section
-		And user obtains information about all used popular model cars available for sale in Chennai
+		And User select each checkboxe of popular models in the filters section
+		Then User gets the car information of respective clicked checkbox model
 		
 		Examples:
 		|		tab name		|
