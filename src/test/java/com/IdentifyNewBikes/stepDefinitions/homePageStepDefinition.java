@@ -25,7 +25,8 @@ public class homePageStepDefinition {
 	    boolean flag = hp.headerVerification(tabName);
 	    Assert.assertTrue(flag);
 	}
-
+	
+	
 	@When("User hovers the mouse over the New Bikes")
 	public void user_hovers_the_mouse_over_the_new_bikes(){
 	    hp.mouseHover();
@@ -33,7 +34,7 @@ public class homePageStepDefinition {
 
 	@Then("Checks whether {string} is present in the New Bikes dropdown")
 	public void checks_whether_is_present_in_the_new_bikes_dropdown(String buttonName) {
-		boolean flag = hp.dropDownVerification(buttonName);
+		boolean flag = hp.newBikesDropDownVerification(buttonName);
 	    Assert.assertTrue(flag);
 	}
 

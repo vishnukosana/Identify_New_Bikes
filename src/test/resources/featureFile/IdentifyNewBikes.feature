@@ -29,28 +29,27 @@ Feature: Identify New Bikes
 	@Smoke @Regression	
 	Scenario: Navigating to the Used Cars for Sale tab
 		Then Checks whether "<tab name>" present in the header section
-		When User clicks on the used cars
+		When User hovers the mouse over the Used Cars
+		Then Checks whether "<button name>" is present in the Used cars dropdown
+		When User clicks on the Chennai button
 		Then User should be navigated to the Used Cars for Sale tab
-		When User sets the location as chennai in filters section
-		And User select each checkboxe of popular models in the filters section
-		Then User gets the car information of respective clicked checkbox model
+		When User select each checkbox of popular models in the filters section
+		And User clicks on the logo element
+		Then User should navigate back to home page 
 		
 		Examples:
-		|		tab name		|
-		|		Used Cars		|
+		|		tab name		|		button name 	|
+		|		Used Cars		|		Chennai				|
 	
 	@Regression	
 	Scenario: Login functionality
 		Given User navigates to the Home page
 		When User clicks the login/signup button
-		And Clicks on the login as "<account type>"
+		And Clicks on the login as Google
 		Then User should be navigated to sign in tab
 		When User enters the email in sign in tab
 		And Clicks on next button in sign in tab
 		Then User checks whether the error message is displayed
 		
-		Examples:
-		|		account type		|
-		|		Google					|
 		
 		

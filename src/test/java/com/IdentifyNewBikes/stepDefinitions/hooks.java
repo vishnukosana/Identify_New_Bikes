@@ -37,7 +37,7 @@ public class hooks {
     @AfterAll
     public static void tearDown() {
         		
-       driver.quit();		// Closing the WebDriver instance
+//       driver.quit();		// Closing the WebDriver instance
        
     }
     

@@ -1,5 +1,7 @@
 package com.IdentifyNewBikes.stepDefinitions;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 
 import com.IdentifyNewBikes.pageObjects.upcomingPage;
@@ -35,15 +37,13 @@ public class upcomingPageStepDefinition {
 	}
 
 	@When("user gets information of all upcoming Honda bikes")
-	public void user_gets_information_of_all_upcoming_honda_bikes() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void user_gets_information_of_all_upcoming_honda_bikes() throws IOException {
+	    up.getBokeInfo();
 	}
 
 	@Then("User should be redirected to the Home page")
 	public void user_should_be_redirected_to_the_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    up.homePageNav();
 	}
 
 }
