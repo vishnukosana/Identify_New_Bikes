@@ -1,7 +1,7 @@
 Feature: Identify New Bikes
 	
 	@Smoke
-	Scenario: Verifying the header section of zigwheels
+	Scenario Outline: Verifying the header section of zigwheels
 		Given User navigates to the zigwheels website
 		Then Checks whether "<tab name>" is present in the header section
 		

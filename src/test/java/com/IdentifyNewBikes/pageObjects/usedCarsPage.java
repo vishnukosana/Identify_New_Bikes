@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.IdentifyNewBikes.utils.excelData;
 
@@ -19,6 +21,7 @@ public class usedCarsPage extends basePage{
 	
 	JavascriptExecutor js = (JavascriptExecutor) driver;		// Initializing JavascriptExecutor
 	String path = System.getProperty("user.dir")+"\\src/test/resources\\Testdata\\Data.xlsx";
+	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
 	
 	By inputField = By.xpath("//input[@id=\"usedCarCity\"]");
 	By popularModel = By.xpath("//div[@class=\"gsc_thin_scroll\"]//label");
@@ -26,6 +29,7 @@ public class usedCarsPage extends basePage{
 //	By pageDown = By.xpath("//div[@id=\"thatsAllFolks\"]");
 	By pageDown = By.xpath("//footer[@id=\"Footer\"]");
 	By logoButton = By.xpath("//div[@class=\"col-lg-2\"]/a");
+	By heading = By.xpath("//h1[@id=\"usedcarttlID\"]");
 	
 	public void clearText()
 	{
@@ -55,6 +59,8 @@ public class usedCarsPage extends basePage{
 			scrolldown();
 			getUsedCars(i.getText());
 			js.executeScript("arguments[0].click();", i);
+//			wait.until(ExpectedConditions.textToBePresentInElementValue(heading, "Used Cars in Chennai"));
+			
 		}
 	}
 	

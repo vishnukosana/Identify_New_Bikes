@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-19T11:22:53 IST" name="Default suite" finished-at="2024-02-19T11:23:29 IST" duration-ms="36414">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.IdentifyNewBikes.testRunner.testRun@563f38c4]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2024-02-19T11:22:53 IST" name="Default test" finished-at="2024-02-19T11:23:29 IST" duration-ms="36414">
+      <class name="com.IdentifyNewBikes.testRunner.testRun">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.IdentifyNewBikes.testRunner.testRun@563f38c4]" started-at="2024-02-19T11:22:53 IST" name="setUpClass" finished-at="2024-02-19T11:23:25 IST" duration-ms="32009" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@552ed807]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.IdentifyNewBikes.testRunner.testRun@563f38c4]" started-at="2024-02-19T11:23:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-19T11:23:29 IST" duration-ms="4178" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Navigating to the Used Cars for Sale tab"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Identify New Bikes"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at com.IdentifyNewBikes.stepDefinitions.usedCarsPageStepDefinition.checks_whether_is_present_in_the_Used_cars_dropdown(usedCarsPageStepDefinition.java:34)
+at ✽.Checks whether "Chennai" is present in the Used cars dropdown(file:///C:/Users/2303727/eclipse-workspace/Identify_New_Bikes/src/test/resources/featureFile/IdentifyNewBikes.feature:33)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.IdentifyNewBikes.testRunner.testRun@563f38c4]" started-at="2024-02-19T11:23:29 IST" name="tearDownClass" finished-at="2024-02-19T11:23:29 IST" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.IdentifyNewBikes.testRunner.testRun -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

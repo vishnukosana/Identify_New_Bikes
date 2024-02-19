@@ -26,7 +26,7 @@ Feature: Identify New Bikes
 		|		manufacture name		|
 		|		Honda								|
 	
-	@Smoke @Regression	
+	@cars	
 	Scenario: Navigating to the Used Cars for Sale tab
 		Then Checks whether "<tab name>" present in the header section
 		When User hovers the mouse over the Used Cars
