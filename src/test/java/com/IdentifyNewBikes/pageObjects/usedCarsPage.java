@@ -30,6 +30,7 @@ public class usedCarsPage extends basePage{
 	By pageDown = By.xpath("//footer[@id=\"Footer\"]");
 	By logoButton = By.xpath("//div[@class=\"col-lg-2\"]/a");
 	By heading = By.xpath("//h1[@id=\"usedcarttlID\"]");
+	By loaing = By.xpath("//div[@class=\"loaderText\"]");
 	
 	public void clearText()
 	{
