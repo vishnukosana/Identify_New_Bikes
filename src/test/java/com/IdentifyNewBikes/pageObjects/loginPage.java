@@ -29,7 +29,8 @@ public class loginPage extends basePage {
 	public void loginClick() throws InterruptedException
 	{
 		driver.findElement(buttonClick).click();
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	
 	public void signInAs()

@@ -94,8 +94,10 @@ public class usedCarsPage extends basePage{
 	public void scrolldown() throws InterruptedException
 	{
 		Thread.sleep(10000);
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(pageDown));
 		Thread.sleep(20000);
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 	}
 	
 	public void logoClick()

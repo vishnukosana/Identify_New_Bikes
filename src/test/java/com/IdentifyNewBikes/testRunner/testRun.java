@@ -12,8 +12,8 @@ import io.cucumber.testng.CucumberOptions;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(features= {"src//test//resources//featureFile//IdentifyNewBikes.feature"},		// Specifying the location of the feature file(s) that contain Gherkin syntax
-				 glue= {"com.IdentifyNewBikes.stepDefinitions"}	// Specifying the package containing step definitions
-				 //plugin= {"pretty","html:Cucumberreport/myreport.html","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}		// Plugins for generating different types of reports
+				 glue= {"com.IdentifyNewBikes.stepDefinitions"},	// Specifying the package containing step definitions
+				 plugin= {"pretty","html:Cucumberreport/myreport.html"} //"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}		// Plugins for generating different types of reports
 				
 				)
 
