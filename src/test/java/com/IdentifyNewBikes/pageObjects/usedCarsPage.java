@@ -57,9 +57,11 @@ public class usedCarsPage extends basePage{
 			System.out.println(i.getText());
 	        js.executeScript("arguments[0].scrollIntoView();", i);
 			js.executeScript("arguments[0].click();", i);
-			scrolldown();
-			getUsedCars(i.getText());
+//			driver.navigate().refresh();
+			scrolldown(i);
+			getUsedCars(i.getText().toString());
 			js.executeScript("arguments[0].click();", i);
+//			driver.navigate().refresh();
 //			wait.until(ExpectedConditions.textToBePresentInElementValue(heading, "Used Cars in Chennai"));
 			
 		}
@@ -68,6 +70,7 @@ public class usedCarsPage extends basePage{
 	public void getUsedCars(String sheetname) throws InterruptedException, IOException
 	{
 //		Thread.sleep(10000);
+//		System.out.println("print cars");
 		List<WebElement> lst1 = driver.findElements(usedCars);
 		System.out.print("Car Model");
 		System.out.print("			");
@@ -91,10 +94,19 @@ public class usedCarsPage extends basePage{
 		}
 	}
 	
-	public void scrolldown() throws InterruptedException
+	public void scrolldown(WebElement i) throws InterruptedException
 	{
 		Thread.sleep(10000);
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		String headingData = driver.findElement(heading).getText();
+		System.out.println(headingData);
+		if(headingData.equals("Used Cars in Chennai"))
+		{
+			js.executeScript("arguments[0].click();", i);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+			js.executeScript("arguments[0].click();", i);
+			System.out.println(driver.findElement(heading).getText());
+		}
 		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(pageDown));
 		Thread.sleep(20000);
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

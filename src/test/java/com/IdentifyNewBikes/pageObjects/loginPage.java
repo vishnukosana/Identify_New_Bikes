@@ -33,9 +33,10 @@ public class loginPage extends basePage {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	
-	public void signInAs()
+	public void signInAs() throws InterruptedException
 	{
 		driver.findElement(googleSignIn).click();
+		Thread.sleep(5000);
 		List<String> windowId = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(windowId.get(1));
 		

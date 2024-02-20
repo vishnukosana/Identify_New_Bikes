@@ -24,7 +24,7 @@ public class loginStepDefinition {
 	}
 
 	@When("Clicks on the login as Google")
-	public void clicks_on_the_login_as_Google() {
+	public void clicks_on_the_login_as_Google() throws InterruptedException {
 	    lp.signInAs();
 	}
 
