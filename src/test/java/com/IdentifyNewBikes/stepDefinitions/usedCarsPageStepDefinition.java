@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 
 import com.IdentifyNewBikes.pageObjects.homePage;
-import com.IdentifyNewBikes.pageObjects.upcomingPage;
+import com.IdentifyNewBikes.pageObjects.upcomingBikesPage;
 import com.IdentifyNewBikes.pageObjects.usedCarsPage;
 import com.IdentifyNewBikes.utils.helperClass;
 

@@ -1,7 +1,7 @@
 Feature: Identify New Bikes
 	
 	@Smoke
-	Scenario: Home page functionality
+	Scenario: Navigating to the Upcoming Honda Bike tab
 		Given User navigates to the zigwheels website
 		Then Checks whether "<NewBikes tab>" is present in the header section
 		When User hovers the mouse over the New Bikes
@@ -12,8 +12,15 @@ Feature: Identify New Bikes
 		When User selects "<manufacture name>" from the manufacturers dropdown
 		Then User should be navigated to Upcoming Honda Bike tab
 		When User clicks on the read more option
-		And user gets information of all upcoming Honda bikes
+		And user stores the information of all upcoming Honda bikes
 		Then User should be redirected to the Home page 
+		
+		Examples:
+		|		NewBikes tab		|		UpcomingBikes button		|		manufacture name		|
+		|		New Bikes				|		Upcoming Bikes					|		Honda								|
+		
+	Scenario: Navigating to the Used Cars for Sale tab
+		Given User navigates to the zigwheels website
 		Then Checks whether "<UsedCars tab>" present in the header section
 		When User hovers the mouse over the Used Cars
 		Then Checks whether "<Chennai button>" is present in the Used cars dropdown
@@ -21,7 +28,13 @@ Feature: Identify New Bikes
 		Then User should be navigated to the Used Cars for Sale tab
 		When User select each checkbox of popular models in the filters section
 		And User clicks on the logo element
-		Then User should navigate back to home page 
+		Then User should navigate back to home page
+		
+		Examples:
+		|		UsedCars tab		|		Chennai button		|
+		|		Used Cars				|		Chennai						|
+		
+	Scenario: login functionality
 		Given User navigates to the Home page
 		When User clicks the login/signup button
 		And Clicks on the login as Google
@@ -30,7 +43,4 @@ Feature: Identify New Bikes
 		And Clicks on next button in sign in tab
 		Then User checks whether the error message is displayed
 		
-		Examples:
-		|		NewBikes tab		|		UpcomingBikes button		|		manufacture name		|		UsedCars tab		|		Chennai button		|
-		|		New Bikes				|		Upcoming Bikes					|		Honda								|		Used Cars				|		Chennai						|
-		
+	

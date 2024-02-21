@@ -4,20 +4,20 @@ import java.io.IOException;
 
 import org.testng.Assert;
 
-import com.IdentifyNewBikes.pageObjects.upcomingPage;
+import com.IdentifyNewBikes.pageObjects.upcomingBikesPage;
 import com.IdentifyNewBikes.utils.helperClass;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class upcomingPageStepDefinition {
+public class upcomingBikesPageStepDefinition {
 	
-	upcomingPage up;
+	upcomingBikesPage up;
 	
 	@Given("User navigates to the Upcoming bikes tab")
 	public void user_navigates_to_the_upcoming_bikes_tab() {
-	    up = new upcomingPage(helperClass.getDriver());
+	    up = new upcomingBikesPage(helperClass.getDriver());
 	}
 
 	@When("User selects {string} from the manufacturers dropdown")
@@ -36,9 +36,11 @@ public class upcomingPageStepDefinition {
 	    up.clickViewMore();
 	}
 
-	@When("user gets information of all upcoming Honda bikes")
-	public void user_gets_information_of_all_upcoming_honda_bikes() throws IOException {
-	    up.getBokeInfo();
+	@When("user stores the information of all upcoming Honda bikes")
+	public void user_stores_the_information_of_all_upcoming_honda_bikes() throws IOException {
+	    up.getBikeInfo();
+	    up.getData();
+	    
 	}
 
 	@Then("User should be redirected to the Home page")

@@ -2,6 +2,7 @@ package com.IdentifyNewBikes.pageObjects;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,6 +19,7 @@ public class usedCarsPage extends basePage{
 	public usedCarsPage(WebDriver driver) {
 		super(driver);
 	}
+	
 	
 	JavascriptExecutor js = (JavascriptExecutor) driver;		// Initializing JavascriptExecutor
 	String path = System.getProperty("user.dir")+"\\src/test/resources\\Testdata\\Data.xlsx";
@@ -72,6 +74,7 @@ public class usedCarsPage extends basePage{
 //		Thread.sleep(10000);
 //		System.out.println("print cars");
 		List<WebElement> lst1 = driver.findElements(usedCars);
+		List<List<String>> values = new ArrayList<>();
 		System.out.print("Car Model");
 		System.out.print("			");
 		System.out.print("Car Location");
@@ -82,15 +85,24 @@ public class usedCarsPage extends basePage{
 		{
 			String carName = driver.findElement(By.xpath("(//div[@class=\"pt-10\"]/parent::div/a)["+i+"]")).getText();
 			String carLocation = driver.findElement(By.xpath("((//div[@class=\"pt-10\"]/parent::div)["+i+"]/span)[1]")).getText();
-			String carPrize = driver.findElement(By.xpath("(//div[@class=\"pt-10\"]/span)["+i+"]")).getText();
-			System.out.print(carName);
-				System.out.print("		");
-				System.out.print(carLocation);
-				System.out.print("		");
-			System.out.println(carPrize);
-			excelData.setCellData(path,sheetname,i, 0, carName);
-			excelData.setCellData(path, sheetname, i, 1, carLocation);
-			excelData.setCellData(path, sheetname, i, 2, carPrize);
+			String carPrice = driver.findElement(By.xpath("(//div[@class=\"pt-10\"]/span)["+i+"]")).getText();
+//			System.out.print(carName);
+//				System.out.print("		");
+//				System.out.print(carLocation);
+//				System.out.print("		");
+//			System.out.println(carPrize);
+//			excelData.setCellData(path,sheetname,i, 0, carName);
+//			excelData.setCellData(path, sheetname, i, 1, carLocation);
+//			excelData.setCellData(path, sheetname, i, 2, carPrize);
+			values.add(List.of(carName,carLocation,carPrice));
+		}
+		for (int i = 1; i < values.size(); i++) {
+			List<String> row = values.get(i);
+			for (int j = 0; j < row.size(); j++) {
+				excelData.setCellData(path, sheetname , i, j, row.get(j));
+				System.out.print(row.get(j) + "\t");
+			}
+			System.out.println();
 		}
 	}
 	
@@ -103,8 +115,11 @@ public class usedCarsPage extends basePage{
 		if(headingData.equals("Used Cars in Chennai"))
 		{
 			js.executeScript("arguments[0].click();", i);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
+//			driver.navigate().to("https://www.zigwheels.com/used-car/Chennai");
+//			driver.navigate().back();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			js.executeScript("arguments[0].click();", i);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
 			System.out.println(driver.findElement(heading).getText());
 		}
 		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(pageDown));
