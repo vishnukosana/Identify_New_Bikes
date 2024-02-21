@@ -48,4 +48,23 @@ public class homePageStepDefinition {
 	    String actHeading = hp.getHeading();
 	    Assert.assertEquals(actHeading, "Upcoming Bikes in India");
 	}
+	
+	//smoke scenario feature files
+	@When("User hovers the mouse over the New Bikes in header section")
+	public void user_hovers_the_mouse_over_the_new_bikes_in_header_section() {
+	    hp.newBikesTab();
+	}
+	
+	@When("User hovers the mouse over the Uesed cars in header section")
+	public void user_hovers_the_mouse_over_the_uesed_cars_in_header_section() {
+	    hp.usedCarsTab();
+	}
+	
+	@When("User clicks on the Upcoming bikes button in New Bikes tab")
+	public void user_clicks_on_the_upcoming_bikes_button_in_new_bikes_tab() {
+	    hp.newBikesTab();
+	    hp.clickUpcomingBikes();
+	}
+	
+	
 }

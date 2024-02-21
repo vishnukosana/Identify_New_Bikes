@@ -18,6 +18,7 @@ import io.cucumber.testng.CucumberOptions;
 				)
 
 //The class extending AbstractTestNGCucumberTests to run Cucumber with TestNG
+@Test
 public class testRun extends AbstractTestNGCucumberTests{
 
 }

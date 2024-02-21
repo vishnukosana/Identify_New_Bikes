@@ -24,7 +24,7 @@ public class hooks {
 	static Properties p;
 	
 	// Method executed once before all scenarios
-	@BeforeAll		
+	@Before	
 	public static void setup() throws IOException
     { 
     	driver=helperClass.initilizeBrowser();		// Initialize the WebDriver  
@@ -34,7 +34,7 @@ public class hooks {
 	}
 		
 	// Method executed once after all scenarios
-    @AfterAll
+    @After
     public static void tearDown() {
         		
        driver.quit();		// Closing the WebDriver instance

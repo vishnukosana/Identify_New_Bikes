@@ -13,7 +13,7 @@ Feature: Identify New Bikes
 	@Smoke
 	Scenario: Verifying the dropdown of New Bikes
 		Given User navigates to the zigwheels website
-		When User hovers the mouse over the New Bikes
+		When User hovers the mouse over the New Bikes in header section
 		Then Checks whether "<button name>" is present in the New Bikes dropdown
 		
 		Examples:
@@ -23,13 +23,13 @@ Feature: Identify New Bikes
 	@Smoke
 	Scenario: Verifying the New Bikes dropdown
 		Given User navigates to the zigwheels website
-		When User clicks on the Upcoming bikes button
+		When User clicks on the Upcoming bikes button in New Bikes tab
 		Then User should be navigated to Upcoming bikes tab
 		
 	@Smoke
 	Scenario: Navigating to the Used Cars for Sale tab
 		Given User navigates to the zigwheels website
-		When User clicks on the used cars
+		When User hovers the mouse over the Uesed cars in header section
 		Then User should be navigated to the Used Cars for Sale tab
 		
 	@Smoke
@@ -40,6 +40,6 @@ Feature: Identify New Bikes
 	@Smoke
 	Scenario: Navigating to the login/register tab
 		Given User navigates to the zigwheels website
-		When User clicks the login/signup button in homee page
+		When User clicks the login/signup button
 		Then User should be navigated to login/register tab
 		

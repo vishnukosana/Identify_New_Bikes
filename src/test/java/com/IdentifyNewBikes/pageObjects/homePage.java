@@ -22,6 +22,10 @@ public class homePage extends basePage {
 	By newBikesDropDown = By.xpath("//a[text()=\"New Bikes\"]/following-sibling::ul/li");
 	By usedCarsDropDown = By.xpath("(//a[text()=\"Used Cars\"]/following-sibling::ul//ul)[2]/li");
 	By headingValue = By.xpath("//div[@class=\"col-sm-12\"]//h1");
+	By newBikesTab = By.xpath("//ul[@class=\"h-d-nav fnt-16 \"]//a[text()=\"New Bikes\"]");
+	By usedCarsTab = By.xpath("//ul[@class=\"h-d-nav fnt-16 \"]//a[text()=\"Used Cars\"]");
+	By upcomingBikesButton = By.xpath("//a[text()=\"New Bikes\"]/following-sibling::ul//*[text()=\"Upcoming Bikes\"]");
+	By buttonClick = By.xpath("//div[@id=\"forum_login_title_lg\"]");
 	
 	public boolean headerVerification(String tabName)
 	{	
@@ -108,6 +112,13 @@ public class homePage extends basePage {
 		act.moveToElement(upcommingBikesButton).click().build().perform();
 	}
 	
+	public void loginClick() throws InterruptedException
+	{
+		driver.findElement(buttonClick).click();
+		Thread.sleep(5000);
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+	}
+	
 	
 	
 	public String getHeading()
@@ -115,6 +126,25 @@ public class homePage extends basePage {
 		return(driver.findElement(headingValue).getText());
 	}
 	
+	public void newBikesTab()
+	{
+		act.moveToElement(driver.findElement(newBikesTab)).build().perform();
+	}
+	
+	public void usedCarsTab()
+	{
+		act.moveToElement(driver.findElement(usedCarsTab)).build().perform();
+	}
+	
+	public void clickUpcomingBikes()
+	{
+		driver.findElement(upcomingBikesButton).click();
+	}
+	
+	public boolean isDisplayed()
+	{
+		return(driver.findElement(buttonClick).isDisplayed());
+	}
 	
 
 }

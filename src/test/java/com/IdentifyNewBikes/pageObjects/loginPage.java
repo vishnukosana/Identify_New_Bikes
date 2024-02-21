@@ -20,11 +20,11 @@ public class loginPage extends basePage {
 	JavascriptExecutor js = (JavascriptExecutor) driver;		// Initializing JavascriptExecutor
 	
 	By buttonClick = By.xpath("//div[@id=\"forum_login_title_lg\"]");
-	By loginTab = By.xpath("//div[@class=\"modal fade in\"]");
 	By googleSignIn = By.xpath("(//div[@class=\"newgf-login\"])[2]");
 	By emailValue = By.xpath("//input[@id=\"identifierId\"]");
 	By nextButton = By.xpath("//div[@id=\"identifierNext\"]");
 	By error = By.xpath("//span[@class=\"jibhHc\"]/parent::div");
+	By headingValue = By.xpath("(//div[@class=\"fo-nw-step1\"]//span)[1]");
 	
 	public void loginClick() throws InterruptedException
 	{
@@ -61,5 +61,11 @@ public class loginPage extends basePage {
 	{
 		return(driver.findElement(error).getText());
 	}
+	
+	public String tabHeading()
+	{
+		return(driver.findElement(headingValue).getText());
+	}
+	
 
 }
