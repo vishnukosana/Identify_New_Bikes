@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 
+import com.IdentifyNewBikes.pageObjects.homePage;
 import com.IdentifyNewBikes.pageObjects.upcomingBikesPage;
 import com.IdentifyNewBikes.utils.helperClass;
 
@@ -14,6 +15,7 @@ import io.cucumber.java.en.When;
 public class upcomingBikesPageStepDefinition {
 	
 	upcomingBikesPage up;
+	homePage hp;
 	
 	@Given("User navigates to the Upcoming bikes tab")
 	public void user_navigates_to_the_upcoming_bikes_tab() {
@@ -47,5 +49,26 @@ public class upcomingBikesPageStepDefinition {
 	public void user_should_be_redirected_to_the_home_page() {
 	    up.homePageNav();
 	}
+	
+	
+	//Regresson scenario step definition
+	@Given("User navigates to the Upcoming bikes tab in New Bikes dropdown")
+	public void user_navigates_to_the_upcoming_bikes_tab_in_new_bikes_dropdown() {
+		hp = new homePage(helperClass.getDriver());
+		hp.newBikesTab();
+		hp.clickUpcomingBikes();
+		up = new upcomingBikesPage(helperClass.getDriver());
+	}
+	
+	@Given("User navigates to the Upcoming honda bikes tab")
+	public void user_navigates_to_the_upcoming_honda_bikes_tab() {
+		hp = new homePage(helperClass.getDriver());
+		hp.newBikesTab();
+		hp.clickUpcomingBikes();
+		up = new upcomingBikesPage(helperClass.getDriver());
+		up.selectManufacture("Honda");
+	}
+	
+
 
 }

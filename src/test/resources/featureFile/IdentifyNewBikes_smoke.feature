@@ -34,12 +34,12 @@ Feature: Identify New Bikes
 		
 	@Smoke
 	Scenario: Verifying the login/signup button in zigwheels
-		Given User navigates to the zigwheels website
+		Given User navigates to the Home page of zigwheels
 		Then Checks whether login/signup is present in the zigwheels tab
 		
 	@Smoke
 	Scenario: Navigating to the login/register tab
-		Given User navigates to the zigwheels website
+		Given User navigates to the Home page of zigwheels
 		When User clicks the login/signup button
 		Then User should be navigated to login/register tab
 		

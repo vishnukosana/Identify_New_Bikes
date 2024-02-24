@@ -12,11 +12,11 @@ import io.cucumber.java.en.When;
 
 public class loginStepDefinition {
 	
-	loginPage lp= new loginPage(helperClass.getDriver());;
-	homePage hp = new homePage(helperClass.getDriver());
+	loginPage lp;
+	homePage hp;
 	
-	@Given("User navigates to the Home page")
-	public void user_navigates_to_the_home_page() {
+	@Given("User navigates to the Home page of zigwheels")
+	public void user_navigates_to_the_Home_page_zigwheels() {
 		hp = new homePage(helperClass.getDriver());
 	}
 
@@ -59,12 +59,27 @@ public class loginStepDefinition {
 	    Assert.assertEquals(error, "Couldn’t find your Google Account");
 	}
 	
+	//smoke scenario step definition
 	@Then("User should be navigated to login\\/register tab")
 	public void user_should_be_navigated_to_login_register_tab() {
-	    String actValue = lp.tabHeading();
+	    String actValue = hp.tabHeading();
 	    Assert.assertEquals(actValue, "Login/Register to ZigWheels");
 	}
-
+	
+	@Given("User navigates to the login\\/register tab")
+	public void user_navigates_to_the_login_register_tab() throws InterruptedException {
+		hp = new homePage(helperClass.getDriver());
+		hp.loginClick();
+		
+	}
+	
+	@Given("User navigates to Sign in tab")
+	public void user_navigates_to_sign_in_tab() throws InterruptedException {
+		hp = new homePage(helperClass.getDriver());
+		hp.loginClick();
+		lp = new loginPage(helperClass.getDriver());
+	    lp.signInAs();
+	}
 
 
 

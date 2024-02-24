@@ -1,11 +1,14 @@
 package com.IdentifyNewBikes.pageObjects;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class homePage extends basePage {
 
@@ -26,6 +29,7 @@ public class homePage extends basePage {
 	By usedCarsTab = By.xpath("//ul[@class=\"h-d-nav fnt-16 \"]//a[text()=\"Used Cars\"]");
 	By upcomingBikesButton = By.xpath("//a[text()=\"New Bikes\"]/following-sibling::ul//*[text()=\"Upcoming Bikes\"]");
 	By buttonClick = By.xpath("//div[@id=\"forum_login_title_lg\"]");
+	By loginHeadingValue = By.xpath("(//div[@class=\"fo-nw-step1\"]//span)[1]");
 	
 	public boolean headerVerification(String tabName)
 	{	
@@ -52,6 +56,7 @@ public class homePage extends basePage {
 	{
 		WebElement newBikes = driver.findElement(By.xpath("(//ul[@class=\"h-d-nav fnt-16 \"]/li/a)["+h+"]"));
 		act.moveToElement(newBikes).build().perform();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	
 	public void clickElement()
@@ -87,6 +92,7 @@ public class homePage extends basePage {
 	}
 	
 	public boolean usedCarsDropDownVerification(String buttonName) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		List<WebElement> lst = driver.findElements(usedCarsDropDown);		// Find all elements matching the 'dropDownValues' locator
 	    boolean flag = false;
 	    int setter =0;
@@ -106,10 +112,18 @@ public class homePage extends basePage {
 	    return flag;		// Return the flag indicating the presence of buttonName
 	}
 	
-	public void clickLocation()
+	public void clickLocation(String buttonName)
 	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		if(buttonName.equalsIgnoreCase("Delhi") || buttonName.equalsIgnoreCase("Mumbai")) {
+		try {
+			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"oneTapAlternateLoginPopup\"]//div[@class=\"clr\"]"))));
+			wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//*[@id=\"oneTapAlternateLoginPopup\"]//div[@class=\"clr\"]"))));
+		}catch(Exception e) {}}
 		WebElement upcommingBikesButton = driver.findElement(By.xpath("((//a[text()=\"Used Cars\"]/following-sibling::ul//ul)[2]/li)["+Ucd+"]"));
-		act.moveToElement(upcommingBikesButton).click().build().perform();
+//		act.moveToElement(upcommingBikesButton).click().build().perform();
+		upcommingBikesButton.click();
 	}
 	
 	public void loginClick() throws InterruptedException
@@ -144,6 +158,11 @@ public class homePage extends basePage {
 	public boolean isDisplayed()
 	{
 		return(driver.findElement(buttonClick).isDisplayed());
+	}
+	
+	public String tabHeading()
+	{
+		return(driver.findElement(loginHeadingValue).getText());
 	}
 	
 

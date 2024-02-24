@@ -23,19 +23,19 @@ Feature: Identify New Bikes
 		Given User navigates to the zigwheels website
 		Then Checks whether "<UsedCars tab>" present in the header section
 		When User hovers the mouse over the Used Cars
-		Then Checks whether "<Chennai button>" is present in the Used cars dropdown
+		Then Checks whether "<location name>" is present in the Used cars dropdown
 		When User clicks on the Chennai button
-		Then User should be navigated to the Used Cars for Sale tab
+		Then User should be navigated to the Used Cars with that "<location name>"
 		When User select each checkbox of popular models in the filters section
 		And User clicks on the logo element
 		Then User should navigate back to home page
 		
 		Examples:
-		|		UsedCars tab		|		Chennai button		|
-		|		Used Cars				|		Chennai						|
+		|		UsedCars tab		|		location name		|
+		|		Used Cars				|		Chennai					|
 		
 	Scenario: login functionality
-		Given User navigates to the Home page
+		Given User navigates to the Home page of zigwheels
 		When User clicks the login/signup button
 		And Clicks on the login as Google
 		Then User should be navigated to sign in tab

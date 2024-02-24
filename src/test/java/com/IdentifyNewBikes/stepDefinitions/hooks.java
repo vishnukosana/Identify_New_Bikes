@@ -24,7 +24,7 @@ public class hooks {
 	static Properties p;
 	
 	// Method executed once before all scenarios
-	@Before	
+	@Before
 	public static void setup() throws IOException
     { 
     	driver=helperClass.initilizeBrowser();		// Initialize the WebDriver  
