@@ -52,9 +52,10 @@ public class loginPage extends basePage {
 		driver.findElement(emailValue).sendKeys(email);
 	}
 	
-	public void clickNext()
+	public void clickNext() throws InterruptedException
 	{
 		driver.findElement(nextButton).click();
+		Thread.sleep(2000);
 	}
 	
 	public String errorMsg()

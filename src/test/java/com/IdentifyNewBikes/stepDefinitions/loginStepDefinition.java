@@ -49,7 +49,7 @@ public class loginStepDefinition {
 	}
 
 	@When("Clicks on next button in sign in tab")
-	public void clicks_on_next_button_in_sign_in_tab() {
+	public void clicks_on_next_button_in_sign_in_tab() throws InterruptedException {
 	    lp.clickNext();
 	}
 
