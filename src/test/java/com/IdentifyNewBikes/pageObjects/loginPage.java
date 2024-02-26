@@ -59,7 +59,7 @@ public class loginPage extends basePage {
 	
 	public String errorMsg()
 	{
-		return(driver.findElement(error).getText());
+		return(driver.findElement(error).getText().toString());
 	}
 	
 	public String tabHeading()
