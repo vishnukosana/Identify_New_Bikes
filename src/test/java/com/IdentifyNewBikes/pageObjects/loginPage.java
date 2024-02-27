@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class loginPage extends basePage {
 
@@ -58,9 +59,10 @@ public class loginPage extends basePage {
 		Thread.sleep(2000);
 	}
 	
-	public String errorMsg()
+	public void errorMsg()
 	{
-		return(driver.findElement(error).getText().toString());
+		String acterror=driver.findElement(error).getText().toString();
+		Assert.assertEquals(acterror, "Couldn’t find your Google Account");
 	}
 	
 	public String tabHeading()

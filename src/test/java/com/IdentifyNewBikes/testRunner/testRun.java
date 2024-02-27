@@ -11,11 +11,10 @@ import io.cucumber.testng.CucumberOptions;
 
 
 //@RunWith(Cucumber.class)
-@CucumberOptions(features= {"src//test//resources//featureFile//IdentifyNewBikes.feature"},		// Specifying the location of the feature file(s) that contain Gherkin syntax
+@CucumberOptions(features= {"src//test//resources//featureFile"},		// Specifying the location of the feature file(s) that contain Gherkin syntax
 				 glue= {"com.IdentifyNewBikes.stepDefinitions"},	// Specifying the package containing step definitions
 				 plugin= {"pretty","html:Cucumberreport/myreport1.html" ,"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},	// Plugins for generating different types of reports
-				 monochrome=true,
-				 tags="@login"
+				 monochrome=true
 				)
 
 //The class extending AbstractTestNGCucumberTests to run Cucumber with TestNG
